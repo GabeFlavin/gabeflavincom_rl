@@ -1,0 +1,485 @@
+@import url("/reset.css");
+
+:root {
+  /* Light mode colors (default) */
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3f4f6;
+  --color-text: #020617;
+  --color-text-muted: #6b7280;
+  --color-accent: #2563eb;
+  --color-accent-soft: rgba(37, 99, 235, 0.12);
+  --color-border-subtle: rgba(148, 163, 184, 0.5);
+
+  /* Font sizes (mobile → desktop) */
+  --font-size-xs: clamp(0.8rem, 0.68vh + 0.1vw, 0.9rem);
+  --font-size-sm: clamp(0.95rem, 0.78vh + 0.2vw, 1.1rem);
+  --font-size-md: clamp(1.1rem, 0.9vh + 0.3vw, 1.3rem);
+  --font-size-lg: clamp(1.35rem, 1.05vh + 1.1vw, 2.65rem);
+  --font-size-xl: clamp(1.7rem, 1.25vh + 1.2vw, 3.2rem);
+  --font-size-2xl: clamp(2.1rem, 1.6vh + 2.6vw, 5rem);
+
+  /* Spacing & padding (mobile → desktop) */
+  --space-xs: clamp(0.25rem, 0.22vh + 0.2vw, 0.4rem);
+  --space-sm: clamp(0.5rem, 0.45vh + 0.3vw, 0.75rem);
+  --space-md: clamp(0.95rem, 0.8vh + 0.5vw, 1.35rem);
+  --space-lg: clamp(1.15rem, 1.2vh + 1.3vw, 3.15rem);
+  --space-xl: clamp(1.2rem, 1.6vh + 2.9vw, 5.5rem);
+  --space-2xl: clamp(1.3rem, 2.2vh + 3.3vw, 6.5rem);
+  --space-3xl: clamp(1.5rem, 3.2vh + 4.5vw, 9.25rem);
+
+  /* Convenience padding scales */
+  --pad-xs: var(--space-xs);
+  --pad-sm: var(--space-sm);
+  --pad-md: var(--space-md);
+  --pad-lg: var(--space-lg);
+  --pad-xl: var(--space-xl);
+  --pad-2xl: var(--space-2xl);
+  --pad-3xl: var(--space-3xl);
+}
+
+:root[data-theme="dark"] {
+  /* Dark mode overrides */
+  --color-bg: #020617;
+  --color-surface: #020617;
+  --color-surface-alt: #111827;
+  --color-text: #e5e7eb;
+  --color-text-muted: #9ca3af;
+  --color-accent: #38bdf8;
+  --color-accent-soft: rgba(56, 189, 248, 0.15);
+  --color-border-subtle: rgba(148, 163, 184, 0.35);
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  line-height: 1.5;
+  background-color: var(--color-bg);
+}
+
+#smooth-wrapper {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#smooth-content {
+  overflow: visible;
+  min-height: 100vh;
+}
+
+
+
+/** 
+
+
+page styles 
+
+
+*/
+
+header {
+  display: flex;
+  width: 100%;
+}
+
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: .5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease,
+    box-shadow 0.15s ease,
+    color 0.15s ease;
+}
+
+button:hover {
+  background: var(--color-accent);
+  color: #f9fafb;
+}
+
+
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4;
+}
+
+.row-span-2 {
+  grid-row: span 2;
+}
+
+.row-span-3 {
+  grid-row: span 3;
+}
+
+.row-span-4 {
+  grid-row: span 4;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-0 {
+  gap: 0;
+}
+
+.gap-xs {
+  gap: var(--space-xs);
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.padding-xs {
+  padding: var(--space-xs);
+}
+
+.padding-sm {
+  padding: var(--space-sm);
+}
+
+.padding-md {
+  padding: var(--space-md);
+}
+
+.padding-lg {
+  padding: var(--space-lg);
+}
+
+.padding-xl {
+  padding: var(--space-xl);
+}
+
+.padding-2xl {
+  padding: var(--space-2xl);
+}
+
+.padding-3xl {
+  padding: var(--space-3xl);
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-background {
+  background-color: transparent !important;
+}
+
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--pad-lg) var(--pad-2xl);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+  position: relative;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+.nav-links-list-close {
+  display: none;
+}
+
+.nav-links-list {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+}
+
+nav a {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--space-xs);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+nav a:hover {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-util {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-md);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+
+/** 
+
+
+    
+    Grid styles 
+
+
+
+*/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+  padding: 0 var(--pad-2xl);
+}
+
+.grid-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.grid-item {
+  background-color: var(--color-surface);
+  padding: var(--pad-lg);
+}
+
+.grid-footer .grid-item {
+  background-color: var(--color-surface-alt);
+  padding: var(--space-md) var(--space-lg);
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .grid-footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .grid-item {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  nav {
+    justify-content: flex-start;
+  }
+  button {
+    font-size: var(--font-size-sm);
+    border-radius: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+  }
+  #nav-toggle {
+    display: block;
+  }
+  .nav-links {
+    width: 100%;
+    padding: 0 var(--pad-md);
+    justify-content: flex-end;
+    position: relative;
+  }
+  .nav-links-list {
+    display: none;
+  }
+  .nav-links.nav-open .nav-links-list {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background-color: var(--color-surface);
+    padding: var(--pad-2xl) var(--pad-md);
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    z-index: 1000;
+  }
+  .nav-links.nav-open .nav-links-list-close {
+    display: block;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: var(--pad-md);
+  }
+  .nav-util {
+    gap: var(--space-xs);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** Headings */
+h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+h5 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+
+
+/** Paragraphs */
+p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* Lead paragraph: slightly larger, more prominent */
+p.lead {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: var(--space-lg);
+}
+
+/* Muted paragraph: less prominent text */
+p.muted {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Paragraph with accent color */
+p.accent {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Paragraph with subtle background */
+p.bg-subtle {
+  background: var(--color-accent-soft);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 0.4em;
+  color: var(--color-text);
+}
+
+ /* Paragraph with border highlight */
+p.border-highlight {
+  border-left: 4px solid var(--color-accent);
+  padding-left: var(--space-sm);
+  background: var(--color-bg-highlight, #f8fafc);
+}
+
+
+
+
+
+

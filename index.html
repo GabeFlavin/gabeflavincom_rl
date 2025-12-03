@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic HTML Grid Page</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <header>
+          <nav class="row">
+              <div class="logo">Logo</div>
+              <div class="nav-links">
+                <button id="nav-toggle" type="button" aria-pressed="false">Menu</button>
+                
+                <div class="nav-links-list">
+                  <div class="nav-links-list-close"><a href="#">close</a></div>
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                  <a href="#">Link 4</a>
+                  <a href="#">Link 5</a>
+                  <a href="#">Link 6</a>
+                </div>
+              </div>
+              <div class="nav-util">
+                <div class="theme-toggle-container">
+                  <button id="theme-toggle" type="button" aria-pressed="false">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <line x1="12" y1="1" x2="12" y2="3"></line>
+                      <line x1="12" y1="21" x2="12" y2="23"></line>
+                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                      <line x1="1" y1="12" x2="3" y2="12"></line>
+                      <line x1="21" y1="12" x2="23" y2="12"></line>
+                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                  <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+                  </button>
+                </div>
+            </div>
+          </nav>
+        </header>
+        <main>
+          <div class="grid">
+            <div class="grid-item col-span-2"><h1>Header 1</h1>
+            <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+            <div class="grid-item row-span-2"><h3>Header 3</h3>
+              <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+            <div class="grid-item"><h3>Header 3</h3>
+                <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+            <div class="grid-item"><h3>Header 3</h3>
+                  <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+            <div class="grid-item"><h3>Header 3</h3>
+                    <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+            
+              <div class="grid-item col-span-2"><h3>Header 3</h3>
+                      <p>This is a simple HTML page with linked CSS and JavaScript.</p></div>
+              <div class="grid-item col-span-3">
+
+                <div class="grid-footer">
+                  <div class="grid-item">1</div>
+                  <div class="grid-item">2</div>
+                  <div class="grid-item">3</div>
+                  <div class="grid-item">4</div>
+                </div>
+                
+              </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
