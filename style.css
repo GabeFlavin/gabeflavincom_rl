@@ -299,12 +299,12 @@ main {
 
 .grid-item {
   background-color: var(--color-surface);
-  padding: var(--pad-lg);
+  padding: var(--pad-md);
 }
 
 .grid-footer .grid-item {
   background-color: var(--color-surface-alt);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md);
 }
 
 @media (max-width: 800px) {
@@ -395,9 +395,6 @@ main {
 /** Headings */
 h1 {
   font-size: var(--font-size-2xl);
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: var(--space-sm);
   color: var(--color-text);
   line-height: 1.15;
 }
